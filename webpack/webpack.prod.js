@@ -10,16 +10,17 @@ const { InjectManifest } = require('workbox-webpack-plugin');
 const prod = {
 	mode: 'production',
 	output: {
-		filename: 'game.[contenthash].js'
+		path: path.resolve(__dirname, '../dist'),
+		filename: 'game.[contenthash].js',
 	},
 	optimization: {
 		splitChunks: {
 			cacheGroups: {
 				commons: {
-					filename: '[name].[contenthash].js'
-				}
-			}
-		}
+					filename: '[name].[contenthash].js',
+				},
+			},
+		},
 	},
 	plugins: [
 		new CleanWebpackPlugin(),
@@ -28,15 +29,15 @@ const prod = {
 				rotateStringArray: true,
 				stringArray: true,
 				// stringArrayEncoding: 'base64', // disabled by default
-				stringArrayThreshold: 0.75
+				stringArrayThreshold: 0.75,
 			},
 			['vendors.*.js']
 		),
 		new InjectManifest({
 			swSrc: path.resolve(__dirname, '../src/pwa/sw.js'),
-			exclude: [/sw\.js$/, /audio.*\.ogg$/, /index\.html$/]
-		})
-	]
+			exclude: [/sw\.js$/, /audio.*\.ogg$/, /index\.html$/],
+		}),
+	],
 };
 
 module.exports = merge(common, prod);
