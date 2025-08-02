@@ -2,11 +2,11 @@
 	"name": "happy-monthiversary-baby",
 	"version": "1.0.0",
 	"description": "Simple HTML5 game created for my beloved girlfriend...",
-	"author": "Kunalsonar007",
+	"author": "Kunalsonar19",
 	"main": "src/game.ts",
 	"repository": {
 		"type": "git",
-		"url": "https://github.com/Kunalsonar007"
+		"url": "https://github.com/Kunalsonar19/Love-Hunt.git"
 	},
 	"scripts": {
 		"start": "webpack-dev-server --config webpack/webpack.dev.js",
